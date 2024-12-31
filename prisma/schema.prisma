@@ -29,6 +29,7 @@ model Expense {
   userId    String    @db.VarChar(128)
   category  Int
   amount    Int
+  targetDate DateTime @db.Date
   memo      String?   @db.VarChar(255)
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
@@ -40,6 +41,7 @@ model Income {
   userId    String    @db.VarChar(128)
   category  Int
   amount    Int
+  targetDate DateTime @db.Date
   memo      String?   @db.VarChar(255)
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
