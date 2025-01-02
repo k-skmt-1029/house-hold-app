@@ -30,5 +30,24 @@ export async function GET(_request: NextRequest, props: { params: Promise<{ id: 
             error: error
         }
     }
+}
 
+export async function DELETE(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
+    const { id } = params
+
+    try {
+        await prisma.user.delete({
+            where: {
+                id: id
+            }
+        })
+
+    } catch (error) {
+        return {
+            status: 500,
+            message: "Something went wrong",
+            error: error
+        }
+    }
 }
